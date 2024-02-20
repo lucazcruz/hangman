@@ -1,0 +1,107 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: "Comic Neue", cursive;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+body {
+  background-image: url(./assets/bg-line.png);
+  min-height: 100vh;
+}
+
+#app {
+  min-height: 100vh;
+  padding: 15px;
+
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+}
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.text-logo {
+  font-size: 36px;
+  color: rgb(0, 89, 255);
+}
+
+.start-game {
+  cursor: pointer;
+  background: none;
+  padding: 0px 18px;
+  border-radius: 20px;
+  border-color: rgb(33, 106, 241);
+
+  font-weight: 700;
+  font-size: 22px;
+  color: #216af1;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.hangman {
+  max-width: 320px;
+}
+
+
+.word-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.word {
+  display: flex;
+  gap: 4px;
+}
+
+.word .letter {
+  display: block;
+  height: 42px;
+  width: 36px;
+  border-bottom: 2px solid black;
+  font-weight: 600;
+  font-size: 38px;
+  text-align: center;
+  color: #216af1;
+}
+
+.keyboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.break {
+  flex-basis: 100%;
+}
+
+.keyboard .letter-button {
+  cursor: pointer;
+  background: none;  
+  border: none;
+  color: #216af1;
+  
+  width: 10%;
+  height: 50px;
+  font-size: 36px;
+  font-weight: 700;
+}
