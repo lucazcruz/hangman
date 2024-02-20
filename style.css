@@ -5,9 +5,17 @@
   font-family: "Comic Neue", cursive;
 }
 
-img {
-  display: block;
-  width: 100%;
+a {
+  text-decoration: none;
+  color: #216af1;
+}
+
+ul {
+  list-style: none;
+}
+
+.flex-break {
+  flex-basis: 100%;
 }
 
 body {
@@ -21,9 +29,11 @@ body {
 
   max-width: 720px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  /* justify-content: space-between; */
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  align-items: stretch;
+
+  position: relative;
 }
 
 header {
@@ -32,12 +42,11 @@ header {
   justify-content: space-between;
 }
 
-.text-logo {
+header .text-logo {
   font-size: 36px;
-  color: rgb(0, 89, 255);
 }
 
-.start-game {
+header .start-game {
   cursor: pointer;
   background: none;
   padding: 0px 18px;
@@ -51,13 +60,33 @@ header {
 
 main {
   display: grid;
+  grid-template-rows: 1fr auto;
+}
+
+main .game-container {
+  display: grid;
   grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  margin-bottom: 40px;
 }
 
-.hangman {
-  max-width: 320px;
+@media(max-width: 767px) {
+  main .game-container {
+    grid-template-columns: 1fr;
+    align-self: start;
+  }
 }
 
+.game-container .hangman {
+  max-width: 459px;
+}
+
+.game-container .hangman img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 
 .word-container {
   display: flex;
@@ -67,12 +96,12 @@ main {
   gap: 8px;
 }
 
-.word {
+.word-container .word {
   display: flex;
   gap: 4px;
 }
 
-.word .letter {
+.word-container .word .letter {
   display: block;
   height: 42px;
   width: 36px;
@@ -87,11 +116,8 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 40px;
-}
-
-.break {
-  flex-basis: 100%;
+  margin-bottom: 20px;
+  justify-items: end;
 }
 
 .keyboard .letter-button {
@@ -104,4 +130,60 @@ main {
   height: 50px;
   font-size: 36px;
   font-weight: 700;
+}
+
+footer p {
+  text-align: center;
+  font-weight: 600;
+}
+
+
+.alert {
+  background: #fff7d1;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
+  padding: 40px 20px;
+  
+  position: absolute;
+  left: 35px; right: 35px;
+}
+
+#select-theme {
+  top: 100px;
+  z-index: 2;
+}
+
+#select-theme h2 {
+  font-size: 26px;
+  margin-bottom: 40px;
+}
+
+#select-theme p {
+  font-size: 20px;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+#select-theme nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#select-theme a {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 10px 0;
+  margin-bottom: 10px;
+}
+
+#alert-game {
+  background: #fff7d1;
+  font-size: 26px;
+  font-weight: 700;
+  bottom: 100px;
+}
+
+#select-theme,
+#alert-game {
+  display: none;
 }
