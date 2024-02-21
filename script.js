@@ -28,8 +28,8 @@ class Hangman {
   async fetchWords(theme) {
     const response = await fetch("./words.json");
     const wordsArray = await response.json();
-
-    const randonNumber = Math.floor(Math.random() * 8);
+    const maxNum = wordsArray[theme].length;
+    const randonNumber = Math.floor(Math.random() * maxNum);
     return wordsArray[theme][randonNumber];
   }
 
@@ -38,7 +38,7 @@ class Hangman {
     let content = ``;
 
     const usedKeys = [...document.querySelectorAll("button[disabled]")].map(item => item.innerText);
-    Array.from(this.word).forEach(letter => {
+    [...this.word].forEach(letter => {
       if(usedKeys.includes(letter)) {
         content += `<span class="letter">${letter}</span>`;
         win -= 1
