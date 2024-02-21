@@ -65,9 +65,9 @@ class Hangman {
   
   startGame({ currentTarget }) {
     this.handleWordContainer(currentTarget);
-    this.num = 0;
+    this.chance = 0;
     
-    this.hangmanImage.src = `./assets/forca-${this.num}.png`;
+    this.hangmanImage.src = `./assets/forca-${this.chance}.png`;
     document.querySelectorAll("button[disabled]").forEach(element => element.removeAttribute("disabled"));
     this.keyboard.classList.add("visible");
     this.wordContainerElement.classList.add("visible");
@@ -82,9 +82,9 @@ class Hangman {
     this.wordContainerConstructor();
     
     if(!this.word.includes(letter)) {
-      this.num += 1;
-      this.hangmanImage.src = `./assets/forca-${this.num}.png`;
-      if(this.num === 6) this.gameover();
+      this.chance += 1;
+      this.hangmanImage.src = `./assets/forca-${this.chance}.png`;
+      if(this.chance === 6) this.gameover();
     }
   }
 
