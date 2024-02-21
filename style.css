@@ -89,7 +89,7 @@ main .game-container {
 }
 
 .word-container {
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -112,15 +112,16 @@ main .game-container {
   color: #216af1;
 }
 
-.keyboard {
+#keyboard {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 20px;
   justify-items: end;
+  display: none;
 }
 
-.keyboard .letter-button {
+#keyboard .letter-button {
   cursor: pointer;
   background: none;  
   border: none;
@@ -150,6 +151,7 @@ footer p {
 #select-theme {
   top: 100px;
   z-index: 2;
+  display: none;
 }
 
 #select-theme h2 {
@@ -181,9 +183,20 @@ footer p {
   font-size: 26px;
   font-weight: 700;
   bottom: 100px;
+  display: none;
 }
 
-#select-theme,
-#alert-game {
-  display: none;
+#keyboard.visible,
+.word-container.visible {
+  display: flex;
+}
+
+#select-theme.visible ,
+#alert-game.visible {
+  display: block;
+}
+
+.letter-button:disabled {
+  opacity: .25;
+  cursor: not-allowed;
 }
